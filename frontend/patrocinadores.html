@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patrocinadores - Bigodinnn1</title>
+    <!-- Links de CSS principais do site -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-visual.css">
+    <link rel="stylesheet" href="assets/css/improved-style.css">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rajdhani:wght@500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        .patrocinadores-hero {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            text-align: center;
+        }
+        .patrocinadores-hero .section-heading {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .patrocinadores-intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .patrocinador-card {
+            background-color: var(--dark-surface, #2a2a3e);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .patrocinador-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+        }
+        .patrocinador-logo img {
+            max-width: 180px;
+            max-height: 100px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .patrocinador-card:hover .patrocinador-logo img {
+            filter: grayscale(0%);
+        }
+        .patrocinador-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        .patrocinador-card p {
+            color: var(--gray-text, #aaa);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .btn-visitar-site {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .btn-visitar-site:hover {
+            background-color: var(--blue-light);
+            color: white;
+        }
+        .seja-patrocinador-section {
+            padding: 40px 0;
+            background-color: var(--dark-surface-secondary, #1f1f2e);
+            text-align: center;
+        }
+        .seja-patrocinador-section h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .seja-patrocinador-section p {
+            color: var(--gray-text, #aaa);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-contato-patrocinio {
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-contato-patrocinio:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (mesma estrutura do index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.jpg" alt="BigodiNNN1 Logo" class="logo-img">
+                <span>BigodiNNN1</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">Notícias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clipes.html">Clipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doacoes.html">Doações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="associados.html">Seja Associado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sorteios.html">Sorteios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="patrocinadores.html">Patrocinadores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-login" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Patrocinadores Hero Section -->
+    <section class="patrocinadores-hero">
+        <div class="container">
+            <h1 class="section-heading">Nossos Patrocinadores e Parceiros</h1>
+            <p class="patrocinadores-intro">Agradecemos imensamente o apoio dos nossos patrocinadores e parceiros, que tornam possível a continuidade e o crescimento do canal Bigodinnn1!</p>
+        </div>
+    </section>
+
+    <!-- Lista de Patrocinadores Section -->
+    <section class="container mt-5 mb-5">
+        <div class="row">
+            <!-- Exemplo de Card de Patrocinador (Repetir para cada patrocinador) -->
+            <div class="col-md-6 col-lg-4">
+                <div class="patrocinador-card">
+                    <div class="patrocinador-logo">
+                        <img src="assets/images/placeholder-logo.png" alt="Logo Patrocinador 1">
+                    </div>
+                    <h3>Nome do Patrocinador 1</h3>
+                    <p>Uma breve descrição sobre o patrocinador e sua área de atuação ou o tipo de apoio que oferece ao canal.</p>
+                    <a href="#" class="btn btn-visitar-site" target="_blank">Visitar Site</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="patrocinador-card">
+                    <div class="patrocinador-logo">
+                        <img src="assets/images/placeholder-logo.png" alt="Logo Patrocinador 2">
+                    </div>
+                    <h3>Nome do Patrocinador 2</h3>
+                    <p>Uma breve descrição sobre o patrocinador e sua área de atuação ou o tipo de apoio que oferece ao canal.</p>
+                    <a href="#" class="btn btn-visitar-site" target="_blank">Visitar Site</a>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="patrocinador-card">
+                    <div class="patrocinador-logo">
+                        <img src="assets/images/placeholder-logo.png" alt="Logo Patrocinador 3">
+                    </div>
+                    <h3>Nome do Patrocinador 3</h3>
+                    <p>Uma breve descrição sobre o patrocinador e sua área de atuação ou o tipo de apoio que oferece ao canal.</p>
+                    <a href="#" class="btn btn-visitar-site" target="_blank">Visitar Site</a>
+                </div>
+            </div>
+            <!-- Adicionar mais cards conforme necessário -->
+        </div>
+    </section>
+
+    <!-- Seja um Patrocinador Section -->
+    <section class="seja-patrocinador-section">
+        <div class="container">
+            <h2>Seja um Patrocinador</h2>
+            <p>Interessado em apoiar o canal Bigodinnn1 e alcançar uma comunidade engajada de gamers? Entre em contacto connosco para conhecer as oportunidades de parceria!</p>
+            <a href="mailto:contato.bigodinnn1@example.com" class="btn btn-contato-patrocinio">Entrar em Contacto</a>
+        </div>
+    </section>
+
+    <!-- Footer (mesma estrutura do index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <h4>BigodiNNN1</h4>
+                    <p>Obrigado por fazer parte da nossa comunidade! Acompanhe as lives e fique por dentro das novidades.</p>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="noticias.html">Notícias</a></li>
+                        <li><a href="clipes.html">Clipes</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                        <li><a href="associados.html">Seja Associado</a></li>
+                        <li><a href="sorteios.html">Sorteios</a></li>
+                        <li><a href="patrocinadores.html">Patrocinadores</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links-footer">
+                        <a href="https://twitch.tv/bigodinnn1" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="https://instagram.com/bigodinnn1" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://discord.gg/HnWa77FA" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright-text">© 2024 BigodiNNN1. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script> 
+</body>
+</html>
+

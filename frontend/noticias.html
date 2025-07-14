@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias - Bigodinnn1</title>
+    <!-- Links de CSS principais do site -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-visual.css">
+    <link rel="stylesheet" href="assets/css/improved-style.css">
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Rajdhani:wght@500;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para a página de notícias, se necessário, podem ser adicionados aqui ou em um novo news.css */
+        .news-hero {
+            padding: 40px 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-blue));
+            color: white;
+            text-align: center;
+        }
+        .news-hero .section-heading {
+            color: white;
+            margin-bottom: 10px;
+        }
+        .news-intro {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.9);
+        }
+        .news-search {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .news-search input {
+            width: 100%;
+            padding: 12px 20px;
+            padding-right: 50px; /* Espaço para o ícone */
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+        }
+        .news-search input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+        .news-search button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .news-grid-section {
+            padding: 40px 0;
+        }
+        .news-item {
+            background-color: var(--dark-surface, #2a2a3e);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+        .news-cover img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .news-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .news-category {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--primary-purple);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .news-title {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 5px;
+        }
+        .news-meta {
+            font-size: 0.9rem;
+            color: var(--gray-text, #aaa);
+        }
+        .news-meta .news-author {
+            margin-left: 10px;
+        }
+        .news-summary, .news-content {
+            padding: 20px;
+            color: var(--light-text, #eee);
+        }
+        .news-summary p {
+            margin-bottom: 0;
+        }
+        .news-content h3 {
+            color: var(--primary-purple);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .news-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        .news-share {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: right;
+        }
+        .news-share span {
+            margin-right: 10px;
+            color: var(--gray-text, #aaa);
+        }
+        .share-btn {
+            color: var(--gray-text, #aaa);
+            margin-left: 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .share-btn:hover {
+            color: var(--primary-purple);
+        }
+        .empty-news {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--dark-surface, #2a2a3e);
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .empty-icon {
+            font-size: 4rem;
+            color: var(--gray-text, #aaa);
+            margin-bottom: 30px;
+        }
+        .empty-news h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        .empty-news p {
+            color: var(--gray-text, #aaa);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (mesma estrutura do index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.jpg" alt="BigodiNNN1 Logo" class="logo-img">
+                <span>BigodiNNN1</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="noticias.html">Notícias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clipes.html">Clipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="doacoes.html">Doações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="associados.html">Seja Associado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sorteios.html">Sorteios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-login" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- News Hero Section -->
+    <section class="news-hero">
+        <div class="container">
+            <h1 class="section-heading">Notícias e Atualizações</h1>
+            <p class="news-intro">Fique por dentro das últimas novidades sobre minhas transmissões, eventos especiais e atualizações do canal.</p>
+            <div class="news-search">
+                <form id="newsSearchForm">
+                    <input type="text" placeholder="Pesquisar notícias..." id="newsSearchInput">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Grid Section -->
+    <section class="news-grid-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <!-- First News Article -->
+                    <article class="news-item featured">
+                        <div class="news-cover">
+                            <img src="assets/images/news-cover.jpg" alt="Novo site do canal Bigodinnn">
+                        </div>
+                        <div class="news-header">
+                            <span class="news-category">Anúncios</span>
+                            <h2 class="news-title">Novo Site e Meta de Crescimento: O Próximo Capítulo do Canal Bigodinnn</h2>
+                            <div class="news-meta">
+                                <span class="news-date">20 de Abril de 2025</span>
+                                <span class="news-author">Por Vinicius Herculano</span>
+                            </div>
+                        </div>
+                        <div class="news-summary">
+                            <p>Após um crescimento impressionante de 780 para mais de 1.500 seguidores em apenas um mês, o canal Bigodinnn lança seu site oficial e anuncia novas metas para 2025.</p>
+                        </div>
+                        <div class="news-content">
+                            <p>É com grande entusiasmo que anuncio o lançamento oficial do nosso site! Este espaço foi criado para aproximar ainda mais nossa comunidade e proporcionar uma experiência completa além das transmissões na Twitch.</p>
+                            
+                            <h3>Um Novo Capítulo</h3>
+                            <p>Setembro de 2024 marcou meu retorno às lives diárias após um período afastado devido a compromissos profissionais e acadêmicos. O resultado foi surpreendente: em apenas um mês, saltamos de 780 para mais de 1.500 seguidores! Este crescimento rápido demonstra o potencial que temos pela frente e me motiva a investir ainda mais no canal.</p>
+                            
+                            <h3>O Que o Site Oferece</h3>
+                            <p>Nosso novo site traz diversas funcionalidades pensadas especialmente para vocês:</p>
+                            <ul>
+                                <li>Transmissão ao vivo integrada diretamente na página inicial</li>
+                                <li>Programação semanal detalhada</li>
+                                <li>Galeria com os melhores momentos das lives</li>
+                                <li>Seção de notícias para manter todos atualizados</li>
+                                <li>Informações sobre sorteios e eventos especiais</li>
+                            </ul>
+                            
+                            <h3>Meta de Doação: Melhorando Juntos</h3>
+                            <p>Para elevar ainda mais a qualidade das transmissões, estabeleci uma meta de doação de R$ 2.500 até 20 de maio de 2025. Estes recursos serão investidos em:</p>
+                            <ul>
+                                <li>Upgrade do setup de streaming</li>
+                                <li>Melhorias na qualidade de áudio e vídeo</li>
+                                <li>Criação de overlays e animações personalizadas</li>
+                                <li>Realização de eventos especiais para a comunidade</li>
+                            </ul>
+                            
+                            <p>Cada contribuição, independente do valor, faz diferença nessa jornada que estamos construindo juntos. Você pode apoiar através do botão de doação na página inicial ou diretamente pelo StreamElements durante as lives.</p>
+                            
+                            <h3>Programação Semanal</h3>
+                            <p>Para que todos possam acompanhar, estabeleci uma programação fixa:</p>
+                            <ul>
+                                <li><strong>Segunda, Terça, Quinta e Sexta:</strong> Valorant (14h às 01h)</li>
+                                <li><strong>Quarta:</strong> CS2 (18h às 01h)</li>
+                                <li><strong>Sábado:</strong> Tema livre - jogos variados e reações</li>
+                            </ul>
+                            
+                            <h3>Planos Futuros</h3>
+                            <p>Além das transmissões regulares, estou planejando:</p>
+                            <ul>
+                                <li>Colaborações com outros streamers</li>
+                                <li>Torneios com participação dos seguidores</li>
+                                <li>Streams especiais de 12 horas para celebrar marcos importantes</li>
+                                <li>Conteúdo exclusivo para apoiadores</li>
+                            </ul>
+                            
+                            <p>Este é apenas o começo de uma nova fase. Agradeço a cada um que tem acompanhado as transmissões, participado do chat e contribuído para o crescimento do canal. Juntos, vamos construir uma comunidade ainda mais forte e divertida!</p>
+                            
+                            <p>Não se esqueça de seguir o canal na <a href="https://twitch.tv/bigodinnn1" target="_blank">Twitch</a> e no <a href="https://www.instagram.com/bigodinnn1/" target="_blank">Instagram</a> para ficar por dentro de todas as novidades!</p>
+                            
+                            <p>Nos vemos na próxima live!</p>
+                        </div>
+                        <div class="news-share">
+                            <span>Compartilhe:</span>
+                            <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="share-btn copy-link" title="Copiar link"><i class="fas fa-link"></i></a>
+                        </div>
+                    </article>
+                    
+                    <!-- Empty News Section (hidden when there are articles) -->
+                    <div class="empty-news" style="display: none;">
+                        <div class="empty-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h2>Notícias em Breve</h2>
+                        <p>Estamos preparando conteúdo incrível para manter você atualizado sobre tudo que acontece no universo Bigodinnn1. Volte em breve!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (pode ser adicionado se necessário, seguindo o padrão do index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 footer-col">
+                    <h4>BigodiNNN1</h4>
+                    <p>Obrigado por fazer parte da nossa comunidade! Acompanhe as lives e fique por dentro das novidades.</p>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="noticias.html">Notícias</a></li>
+                        <li><a href="clipes.html">Clipes</a></li>
+                        <li><a href="doacoes.html">Doações</a></li>
+                        <li><a href="associados.html">Seja Associado</a></li>
+                        <li><a href="sorteios.html">Sorteios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-col">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links-footer">
+                        <a href="https://twitch.tv/bigodinnn1" target="_blank"><i class="fab fa-twitch"></i></a>
+                        <a href="https://instagram.com/bigodinnn1" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://discord.gg/HnWa77FA" target="_blank"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="copyright-text">© 2024 BigodiNNN1. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script> 
+</body>
+</html>
+

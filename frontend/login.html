@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigodiNNN1 - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-visual.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.jpg" alt="BigodiNNN1 Logo" class="logo-img">
+                <span>BigodiNNN1</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="doacoes.html">Doações</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">Notícias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clipes.html">Clipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active btn-login" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="auth-container">
+                    <!-- Tabs para alternar entre login e cadastro -->
+                    <ul class="nav nav-tabs" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">
+                                <i class="fas fa-user-plus"></i> Cadastro
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content p-4" id="authTabContent">
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <h2 class="text-center mb-4">Entrar na sua conta</h2>
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="loginEmail" placeholder="seu.email@exemplo.com" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Senha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="loginPassword" placeholder="Sua senha" required>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
+                                    <a href="#" class="float-end forgot-password" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Esqueceu a senha?</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                                
+                                <div class="social-login mt-4">
+                                    <p class="text-center">Ou entre com</p>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-social btn-twitch">
+                                            <i class="fab fa-twitch"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-social btn-google">
+                                            <i class="fab fa-google"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-social btn-discord">
+                                            <i class="fab fa-discord"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Register Form -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <h2 class="text-center mb-4">Criar uma conta</h2>
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <label for="registerUsername" class="form-label">Nome de usuário</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        <input type="text" class="form-control" id="registerUsername" placeholder="Seu nome de usuário" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        <input type="email" class="form-control" id="registerEmail" placeholder="seu.email@exemplo.com" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Senha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="registerPassword" placeholder="Crie uma senha" required>
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="password-strength mt-2">
+                                        <div class="progress">
+                                            <div id="passwordStrength" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <small id="passwordFeedback" class="form-text">Sua senha deve ter pelo menos 8 caracteres</small>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerConfirmPassword" class="form-label">Confirmar senha</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                        <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirme sua senha" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">
+                                        Concordo com os <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Termos de Uso</a> e <a href="#" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de Privacidade</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                                
+                                <div class="social-login mt-4">
+                                    <p class="text-center">Ou cadastre-se com</p>
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button" class="btn btn-social btn-twitch">
+                                            <i class="fab fa-twitch"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-social btn-google">
+                                            <i class="fab fa-google"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-social btn-discord">
+                                            <i class="fab fa-discord"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Recuperar Senha</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Digite seu email para receber um link de recuperação de senha.</p>
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <label for="recoveryEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="recoveryEmail" placeholder="seu.email@exemplo.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Enviar Link de Recuperação</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Termos de Uso</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Termos e Condições de Uso do Site BigodiNNN1</h4>
+                    <p>Última atualização: Abril de 2025</p>
+                    
+                    <h5>1. Aceitação dos Termos</h5>
+                    <p>Ao acessar e utilizar este site, você concorda em cumprir e estar vinculado aos seguintes termos e condições de uso. Se você não concordar com qualquer parte destes termos, não poderá acessar ou utilizar nosso site.</p>
+                    
+                    <h5>2. Contas de Usuário</h5>
+                    <p>Para acessar determinados recursos do site, você precisará criar uma conta. Você é responsável por manter a confidencialidade de sua conta e senha, bem como por restringir o acesso ao seu computador. Você concorda em aceitar a responsabilidade por todas as atividades que ocorram em sua conta.</p>
+                    
+                    <h5>3. Conteúdo do Usuário</h5>
+                    <p>Ao enviar conteúdo para o site (como comentários, clipes ou notícias), você concede ao BigodiNNN1 uma licença mundial, não exclusiva, isenta de royalties para usar, reproduzir, modificar, adaptar, publicar, traduzir, distribuir e exibir esse conteúdo.</p>
+                    
+                    <h5>4. Conduta do Usuário</h5>
+                    <p>Você concorda em não utilizar o site para:</p>
+                    <ul>
+                        <li>Publicar conteúdo ilegal, abusivo, difamatório, obsceno ou invasivo à privacidade de terceiros</li>
+                        <li>Transmitir vírus ou códigos maliciosos</li>
+                        <li>Interferir ou interromper a integridade ou o desempenho do site</li>
+                        <li>Coletar ou rastrear informações pessoais de outros usuários</li>
+                    </ul>
+                    
+                    <h5>5. Propriedade Intelectual</h5>
+                    <p>O conteúdo do site, incluindo textos, gráficos, logotipos, ícones e imagens, é propriedade do BigodiNNN1 e está protegido por leis de direitos autorais.</p>
+                    
+                    <h5>6. Limitação de Responsabilidade</h5>
+                    <p>O BigodiNNN1 não será responsável por quaisquer danos diretos, indiretos, incidentais, consequenciais ou punitivos resultantes do uso ou incapacidade de usar o site.</p>
+                    
+                    <h5>7. Alterações nos Termos</h5>
+                    <p>O BigodiNNN1 reserva-se o direito de modificar estes termos a qualquer momento. As alterações entrarão em vigor imediatamente após a publicação no site.</p>
+                    
+                    <h5>8. Lei Aplicável</h5>
+                    <p>Estes termos serão regidos e interpretados de acordo com as leis do Brasil.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Política de Privacidade</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Política de Privacidade do Site BigodiNNN1</h4>
+                    <p>Última atualização: Abril de 2025</p>
+                    
+                    <h5>1. Informações Coletadas</h5>
+                    <p>Coletamos as seguintes informações pessoais quando você se cadastra em nosso site:</p>
+                    <ul>
+                        <li>Nome de usuário</li>
+                        <li>Endereço de e-mail</li>
+                        <li>Informações de perfil que você optar por fornecer</li>
+                    </ul>
+                    
+                    <h5>2. Como Usamos Suas Informações</h5>
+                    <p>Utilizamos suas informações para:</p>
+                    <ul>
+                        <li>Criar e gerenciar sua conta</li>
+                        <li>Personalizar sua experiência no site</li>
+                        <li>Enviar notificações sobre atualizações ou eventos</li>
+                        <li>Responder a suas perguntas e solicitações</li>
+                    </ul>
+                    
+                    <h5>3. Compartilhamento de Informações</h5>
+                    <p>Não vendemos, comercializamos ou transferimos suas informações pessoais para terceiros, exceto quando necessário para fornecer serviços solicitados por você (como processamento de pagamentos).</p>
+                    
+                    <h5>4. Cookies e Tecnologias Semelhantes</h5>
+                    <p>Utilizamos cookies para melhorar sua experiência no site, analisar o tráfego e personalizar o conteúdo. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade do site.</p>
+                    
+                    <h5>5. Segurança</h5>
+                    <p>Implementamos medidas de segurança para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+                    
+                    <h5>6. Seus Direitos</h5>
+                    <p>Você tem o direito de:</p>
+                    <ul>
+                        <li>Acessar e receber uma cópia de suas informações pessoais</li>
+                        <li>Retificar informações incorretas</li>
+                        <li>Solicitar a exclusão de suas informações</li>
+                        <li>Retirar seu consentimento a qualquer momento</li>
+                    </ul>
+                    
+                    <h5>7. Alterações na Política de Privacidade</h5>
+                    <p>Podemos atualizar nossa Política de Privacidade periodicamente. Notificaremos sobre quaisquer alterações significativas.</p>
+                    
+                    <h5>8. Contato</h5>
+                    <p>Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco pelo e-mail: vinicius.herculano.lemos@gmail.com</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>BigodiNNN1</h4>
+                    <p>Canal de streaming com conteúdo variado e interativo.</p>
+                    <p>Contato: vinicius.herculano.lemos@gmail.com</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="organizador.html">Organizador</a>
+                        <a href="noticias.html">Notícias</a>
+                        <a href="clipes.html">Clipes</a>
+                        <a href="login.html">Login</a>
+                    </div>
+                    <p class="copyright">© 2025 BigodiNNN1. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

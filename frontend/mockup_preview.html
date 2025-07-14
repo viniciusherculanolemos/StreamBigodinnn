@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prévia do Site BigodiNNN1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background-color: #1a1a2e;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ff3399;
+        }
+        h1 {
+            color: #ff3399;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #00ccff;
+            margin-top: 30px;
+            border-bottom: 1px solid #00ccff;
+            padding-bottom: 10px;
+        }
+        .preview-section {
+            margin-bottom: 40px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .preview-image {
+            width: 100%;
+            height: 400px;
+            border: 2px solid #ff3399;
+            border-radius: 5px;
+            margin-top: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            background-color: #2a2a4a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .preview-image .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .preview-image .overlay h3 {
+            color: #ff3399;
+            margin-bottom: 15px;
+        }
+        .preview-image .overlay p {
+            color: #fff;
+            max-width: 80%;
+        }
+        .preview-image .mockup-elements {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .features-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .features-list li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .features-list li:before {
+            content: "✓";
+            color: #00ccff;
+            position: absolute;
+            left: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-top: 1px solid #ff3399;
+        }
+        .highlight {
+            color: #ff3399;
+            font-weight: bold;
+        }
+        
+        /* Elementos de mockup para a página inicial */
+        .mockup-header {
+            height: 60px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .mockup-logo {
+            width: 40px;
+            height: 40px;
+            background-color: #ff3399;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .mockup-nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .mockup-nav-item {
+            width: 60px;
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-left: 10px;
+            border-radius: 3px;
+        }
+        .mockup-main {
+            display: flex;
+            height: calc(100% - 60px);
+        }
+        .mockup-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .mockup-video {
+            height: 60%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .mockup-video-icon {
+            font-size: 3rem;
+            color: #ff3399;
+        }
+        .mockup-section {
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .mockup-chat {
+            width: 300px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .mockup-chat-header {
+            height: 40px;
+            background-color: rgba(255, 51, 153, 0.2);
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .mockup-chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .mockup-message {
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        .mockup-chat-input {
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        /* Elementos de mockup para o login */
+        .mockup-login-container {
+            width: 80%;
+            max-width: 500px;
+            height: 80%;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .mockup-login-tabs {
+            height: 50px;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        .mockup-login-tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid transparent;
+        }
+        .mockup-login-tab.active {
+            border-bottom-color: #ff3399;
+        }
+        .mockup-login-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .mockup-input {
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .mockup-button {
+            height: 50px;
+            background-color: #ff3399;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .mockup-social {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .mockup-social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+        }
+        .mockup-social-btn:nth-child(1) {
+            background-color: #6441a5; /* Twitch */
+        }
+        .mockup-social-btn:nth-child(2) {
+            background-color: #db4437; /* Google */
+        }
+        .mockup-social-btn:nth-child(3) {
+            background-color: #7289da; /* Discord */
+        }
+        
+        /* Elementos de mockup para associados */
+        .mockup-associados {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .mockup-benefits {
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .mockup-plans {
+            display: flex;
+            justify-content: space-between;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .mockup-plan {
+            width: 30%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            position: relative;
+        }
+        .mockup-plan.featured {
+            border: 2px solid #ff3399;
+            transform: scale(1.05);
+        }
+        .mockup-plan-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ff3399;
+            color: white;
+            padding: 5px;
+            border-radius: 0 5px 0 5px;
+            font-size: 0.7rem;
+        }
+        .mockup-faq {
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+        
+        /* Elementos de mockup para doações */
+        .mockup-doacoes {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .mockup-goal {
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .mockup-progress {
+            height: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .mockup-progress-bar {
+            height: 100%;
+            width: 65%;
+            background-color: #ff3399;
+        }
+        .mockup-donation-options {
+            display: flex;
+            justify-content: space-between;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        .mockup-donation-option {
+            width: 30%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mockup-donation-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 51, 153, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .mockup-donation-icon i {
+            color: #ff3399;
+            font-size: 1.5rem;
+        }
+        .mockup-recent-donations {
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .mockup-donation-item {
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        
+        /* Elementos de mockup para organizador */
+        .mockup-organizador {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .mockup-dashboard {
+            display: flex;
+            justify-content: space-between;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        .mockup-stat {
+            width: 23%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .mockup-tabs {
+            height: 50px;
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+        }
+        .mockup-tab {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid transparent;
+        }
+        .mockup-tab.active {
+            border-bottom-color: #ff3399;
+        }
+        .mockup-tab-content {
+            height: 250px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0 0 5px 5px;
+            padding: 10px;
+        }
+        .mockup-calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-gap: 5px;
+            margin-top: 10px;
+        }
+        .mockup-calendar-day {
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        .mockup-calendar-day.today {
+            background-color: rgba(255, 51, 153, 0.2);
+            border: 1px solid #ff3399;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Prévia do Site BigodiNNN1</h1>
+        <p>Visualização das principais páginas e funcionalidades implementadas</p>
+    </header>
+
+    <div class="container">
+        <div class="preview-section">
+            <h2>Página Inicial</h2>
+            <p>A página inicial do site apresenta um design moderno e responsivo, com as cores da sua logo (rosa e azul). Ela inclui:</p>
+            <ul class="features-list">
+                <li>Integração com a Twitch para exibir sua transmissão ao vivo</li>
+                <li>Exibição automática do vídeo de introdução quando estiver offline</li>
+                <li>Sistema de chat exclusivo para o site com suporte a emojis</li>
+                <li>Área para doações com barra de progresso para a meta</li>
+                <li>Seção de associados destacando os benefícios</li>
+                <li>Links para suas redes sociais</li>
+            </ul>
+            <div class="preview-image">
+                <div class="mockup-elements">
+                    <div class="mockup-header">
+                        <div class="mockup-logo"></div>
+                        <div class="mockup-nav">
+                            <div class="mockup-nav-item"></div>
+                            <div class="mockup-nav-item"></div>
+                            <div class="mockup-nav-item"></div>
+                            <div class="mockup-nav-item"></div>
+                            <div class="mockup-nav-item"></div>
+                        </div>
+                    </div>
+                    <div class="mockup-main">
+                        <div class="mockup-content">
+                            <div class="mockup-video">
+                                <i class="fas fa-play-circle mockup-video-icon"></i>
+                            </div>
+                            <div class="mockup-section"></div>
+                            <div class="mockup-section"></div>
+                        </div>
+                        <div class="mockup-chat">
+                            <div class="mockup-chat-header"></div>
+                            <div class="mockup-chat-messages">
+                                <div class="mockup-message"></div>
+                                <div class="mockup-message"></div>
+                                <div class="mockup-message"></div>
+                                <div class="mockup-message"></div>
+                                <div class="mockup-message"></div>
+                                <div class="mockup-message"></div>
+                            </div>
+                            <div class="mockup-chat-input"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <h3>Página Inicial com Integração Twitch</h3>
+                    <p>A página inicial exibe sua transmissão ao vivo da Twitch quando você está online, e automaticamente mostra o vídeo de introdução quando offline. O chat exclusivo permite que seus fãs interajam diretamente no site.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Sistema de Login e Cadastro</h2>
+            <p>O sistema de cadastro de usuários permite que seus fãs criem contas no site para participar do chat, enviar clipes e notícias. Recursos incluem:</p>
+            <ul class="features-list">
+                <li>Formulários de login e cadastro</li>
+                <li>Recuperação de senha</li>
+                <li>Validação de formulários e verificação de força de senha</li>
+                <li>Integração com redes sociais (Twitch, Google, Discord)</li>
+                <li>Login master para você como administrador usando seu email</li>
+            </ul>
+            <div class="preview-image">
+                <div class="mockup-elements">
+                    <div class="mockup-login-container">
+                        <div class="mockup-login-tabs">
+                            <div class="mockup-login-tab active">Login</div>
+                            <div class="mockup-login-tab">Cadastro</div>
+                        </div>
+                        <div class="mockup-login-content">
+                            <div class="mockup-input"></div>
+                            <div class="mockup-input"></div>
+                            <div class="mockup-button"></div>
+                            <div class="mockup-social">
+                                <div class="mockup-social-btn"></div>
+                                <div class="mockup-social-btn"></div>
+                                <div class="mockup-social-btn"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <h3>Sistema de Login e Cadastro</h3>
+                    <p>O sistema de login permite que os usuários se cadastrem no site para participar do chat, enviar clipes e notícias. Inclui login com redes sociais e um login master para você como administrador.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Página de Associados</h2>
+            <p>A página de associados apresenta os diferentes planos de assinatura disponíveis e os benefícios exclusivos para associados:</p>
+            <ul class="features-list">
+                <li>Detalhamento dos benefícios com ícones e descrições</li>
+                <li>Depoimentos de associados atuais</li>
+                <li>Diferentes planos de assinatura (mensal, trimestral, anual)</li>
+                <li>Seção de perguntas frequentes</li>
+                <li>Integração com sua plataforma de pagamento</li>
+            </ul>
+            <div class="preview-image">
+                <div class="mockup-elements">
+                    <div class="mockup-associados">
+                        <div class="mockup-benefits"></div>
+                        <div class="mockup-plans">
+                            <div class="mockup-plan"></div>
+                            <div class="mockup-plan featured">
+                                <div class="mockup-plan-badge">Melhor Custo-Benefício</div>
+                            </div>
+                            <div class="mockup-plan"></div>
+                        </div>
+                        <div class="mockup-faq"></div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <h3>Página de Associados</h3>
+                    <p>A página de associados apresenta os benefícios exclusivos e diferentes planos de assinatura (mensal, trimestral e anual). Inclui depoimentos de associados atuais e uma seção de perguntas frequentes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Sistema de Doações</h2>
+            <p>O sistema de doações permite que seus fãs contribuam financeiramente para o canal de forma fácil e segura:</p>
+            <ul class="features-list">
+                <li>Página completa com meta atual e progresso</li>
+                <li>Múltiplas opções de doação (PIX, cartão, presentes virtuais)</li>
+                <li>Doações personalizadas com valores sugeridos</li>
+                <li>Exibição de doadores recentes e top doadores</li>
+                <li>Seção de perguntas frequentes sobre doações</li>
+            </ul>
+            <div class="preview-image">
+                <div class="mockup-elements">
+                    <div class="mockup-doacoes">
+                        <div class="mockup-goal">
+                            <div class="mockup-progress">
+                                <div class="mockup-progress-bar"></div>
+                            </div>
+                        </div>
+                        <div class="mockup-donation-options">
+                            <div class="mockup-donation-option">
+                                <div class="mockup-donation-icon">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                            </div>
+                            <div class="mockup-donation-option">
+                                <div class="mockup-donation-icon">
+                                    <i class="fas fa-qrcode"></i>
+                                </div>
+                            </div>
+                            <div class="mockup-donation-option">
+                                <div class="mockup-donation-icon">
+                                    <i class="fas fa-gift"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mockup-recent-donations">
+                            <div class="mockup-donation-item"></div>
+                            <div class="mockup-donation-item"></div>
+                            <div class="mockup-donation-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <h3>Sistema de Doações</h3>
+                    <p>O sistema de doações exibe a meta atual com barra de progresso e oferece múltiplas opções de pagamento (PIX, cartão, presentes virtuais). Mostra doadores recentes e top doadores do mês.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Ferramenta de Organização</h2>
+            <p>A ferramenta de organização exclusiva para você gerenciar sua carreira como streamer inclui:</p>
+            <ul class="features-list">
+                <li>Calendário e programação de streams</li>
+                <li>Planejamento de conteúdo e jogos</li>
+                <li>Acompanhamento de metas de crescimento</li>
+                <li>Monitoramento de receitas e doações</li>
+                <li>Sistema de anotações e lembretes</li>
+            </ul>
+            <div class="preview-image">
+                <div class="mockup-elements">
+                    <div class="mockup-organizador">
+                        <div class="mockup-dashboard">
+                            <div class="mockup-stat"></div>
+                            <div class="mockup-stat"></div>
+                            <div class="mockup-stat"></div>
+                            <div class="mockup-stat"></div>
+                        </div>
+                        <div class="mockup-tabs">
+                            <div class="mockup-tab active">Agenda</div>
+                            <div class="mockup-tab">Conteúdo</div>
+                            <div class="mockup-tab">Metas</div>
+                            <div class="mockup-tab">Monetização</div>
+                            <div class="mockup-tab">Notas</div>
+                        </div>
+                        <div class="mockup-tab-content">
+                            <div class="mockup-calendar">
+                                <div class="mockup-calendar-day">1</div>
+                                <div class="mockup-calendar-day">2</div>
+                                <div class="mockup-calendar-day">3</div>
+                                <div class="mockup-calendar-day">4</div>
+                                <div class="mockup-calendar-day">5</div>
+                                <div class="mockup-calendar-day">6</div>
+                                <div class="mockup-calendar-day">7</div>
+                                <div class="mockup-calendar-day">8</div>
+                                <div class="mockup-calendar-day">9</div>
+                                <div class="mockup-calendar-day">10</div>
+                                <div class="mockup-calendar-day">11</div>
+                                <div class="mockup-calendar-day">12</div>
+                                <div class="mockup-calendar-day">13</div>
+                                <div class="mockup-calendar-day">14</div>
+                                <div class="mockup-calendar-day">15</div>
+                                <div class="mockup-calendar-day">16</div>
+                                <div class="mockup-calendar-day">17</div>
+                                <div class="mockup-calendar-day">18</div>
+                                <div class="mockup-calendar-day">19</div>
+                                <div class="mockup-calendar-day">20</div>
+                                <div class="mockup-calendar-day today">21</div>
+                                <div class="mockup-calendar-day">22</div>
+                                <div class="mockup-calendar-day">23</div>
+                                <div class="mockup-calendar-day">24</div>
+                                <div class="mockup-calendar-day">25</div>
+                                <div class="mockup-calendar-day">26</div>
+                                <div class="mockup-calendar-day">27</div>
+                                <div class="mockup-calendar-day">28</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay">
+                    <h3>Ferramenta de Organização</h3>
+                    <p>A ferramenta de organização exclusiva para você inclui calendário de streams, planejamento de conteúdo, acompanhamento de metas, monitoramento de receitas e sistema de anotações.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2>Recursos Adicionais</h2>
+            <p>Além das principais funcionalidades, o site também inclui:</p>
+            <ul class="features-list">
+                <li>Design totalmente responsivo para funcionar em dispositivos móveis e desktop</li>
+                <li>Integração com redes sociais para compartilhamento de conteúdo</li>
+                <li>Sistema de notificações para manter os usuários informados</li>
+                <li>Área para clipes e notícias enviadas pelos usuários</li>
+                <li>Painel de administração para gerenciar usuários e conteúdo</li>
+            </ul>
+        </div>
+
+        <div class="preview-section">
+            <h2>Próximos Passos</h2>
+            <p>Para implementar o site na Hostinger, você precisará:</p>
+            <ol>
+                <li>Fazer login na sua conta da Hostinger</li>
+                <li>Acessar o painel de controle e criar um novo site</li>
+                <li>Usar o gerenciador de arquivos ou FTP para fazer upload de todos os arquivos da pasta bigodinnn_site</li>
+                <li>Configurar o domínio para apontar para o seu novo site</li>
+            </ol>
+            <p>Posso compactar todos os arquivos em um único arquivo ZIP para facilitar o upload, ou posso fornecer instruções detalhadas para a implantação.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Site desenvolvido para <span class="highlight">BigodiNNN1</span> | Todos os direitos reservados © 2025</p>
+    </div>
+</body>
+</html>

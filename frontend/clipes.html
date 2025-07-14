@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipes - BigodiNNN1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-visual.css">
+    <link rel="icon" href="assets/images/logo.jpg" type="image/jpeg">
+    <style>
+        .empty-gallery {
+            text-align: center;
+            padding: 80px 20px;
+            background-color: var(--dark-surface);
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+        }
+        
+        .empty-gallery h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .empty-gallery p {
+            color: var(--gray-text);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .clip-submission {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+        
+        .clip-submission h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .clip-submission p {
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .submission-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 20px;
+        }
+        
+        .file-upload {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .file-upload:hover {
+            border-color: var(--primary-purple);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .file-upload input {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .file-upload i {
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            margin-bottom: 15px;
+        }
+        
+        .file-upload p {
+            margin: 0;
+            color: white;
+        }
+        
+        .file-upload .file-hint {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            margin-top: 5px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .form-submit button {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-submit button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.jpg" alt="BigodiNNN1 Logo" class="logo-img">
+                <span>BigodiNNN1</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="noticias.html">Notícias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="clipes.html">Clipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="associados.html">Seja Associado</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sorteios.html">Sorteios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-login" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Clipes Hero Section -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="section-heading">Clipes da Comunidade</h1>
+            <p class="section-intro">Confira os melhores momentos das transmissões, enviados pela comunidade.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Empty Gallery Section -->
+                <div class="empty-gallery">
+                    <div class="empty-icon">
+                        <i class="fas fa-photo-video"></i>
+                    </div>
+                    <h2>Clipes em Construção</h2>
+                    <p>Estamos trabalhando para adicionar os melhores momentos das transmissões. Em breve você poderá encontrar aqui os clips mais incríveis organizados por jogo e categoria.</p>
+                </div>
+                
+                <!-- Clip Submission Section -->
+                <div class="clip-submission">
+                    <h2>Envie seu Clip Favorito</h2>
+                    <p>Você capturou um momento incrível durante uma das minhas transmissões? Compartilhe conosco!</p>
+                    
+                    <div class="submission-form">
+                        <form id="clipSubmissionForm">
+                            <div class="form-group">
+                                <label for="clipTitle">Título do Clip</label>
+                                <input type="text" id="clipTitle" name="clipTitle" placeholder="Ex: Ace incrível no Valorant" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clipGame">Jogo</label>
+                                <select id="clipGame" name="clipGame" required>
+                                    <option value="" disabled selected>Selecione o jogo</option>
+                                    <option value="valorant">Valorant</option>
+                                    <option value="cs2">Counter-Strike 2</option>
+                                    <option value="lol">League of Legends</option>
+                                    <option value="reaction">Reação</option>
+                                    <option value="other">Outro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clipDescription">Descrição</label>
+                                <textarea id="clipDescription" name="clipDescription" placeholder="Descreva o que acontece no clip e por que ele é especial..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="clipFile">Arquivo do Clip</label>
+                                <div class="file-upload">
+                                    <input type="file" id="clipFile" name="clipFile" accept="video/*" required>
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Arraste e solte seu arquivo ou clique para selecionar</p>
+                                    <span class="file-hint">Formatos aceitos: MP4, MOV, WebM (máx. 100MB)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="submitterName">Seu Nome</label>
+                                <input type="text" id="submitterName" name="submitterName" placeholder="Como você quer ser creditado" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="submitterEmail">Seu Email</label>
+                                <input type="email" id="submitterEmail" name="submitterEmail" placeholder="Para notificarmos quando o clip for publicado" required>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit">Enviar Clip</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>BigodiNNN1</h4>
+                    <p>Canal de streaming com conteúdo variado e interativo.</p>
+                    <p>Contato: vinicius.herculano.lemos@gmail.com</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="noticias.html">Notícias</a>
+                        <a href="clipes.html">Clipes</a>
+                        <a href="associados.html">Associados</a>
+                        <a href="sorteios.html">Sorteios</a>
+                        <a href="login.html">Login</a>
+                    </div>
+                    <p class="copyright">© 2025 BigodiNNN1. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('clipSubmissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obter os dados do formulário
+            const formData = new FormData(this);
+            
+            // Adicionar o e-mail de destino como um campo oculto
+            formData.append('destinationEmail', 'vinicius.herculano.lemos@gmail.com');
+            
+            // Simulação de envio para demonstração
+            console.log('Enviando formulário para: vinicius.herculano.lemos@gmail.com');
+            console.log('Título do clip:', formData.get('clipTitle'));
+            console.log('Jogo:', formData.get('clipGame'));
+            console.log('Descrição:', formData.get('clipDescription'));
+            console.log('Nome do remetente:', formData.get('submitterName'));
+            console.log('Email do remetente:', formData.get('submitterEmail'));
+            
+            // Exibir mensagem de confirmação com o e-mail correto
+            alert('Obrigado por enviar seu clip! Ele será enviado para vinicius.herculano.lemos@gmail.com e revisado em breve.');
+            
+            // Limpar o formulário
+            this.reset();
+        });
+    </script>
+</body>
+</html>
