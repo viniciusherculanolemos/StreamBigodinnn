@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
             profilePicturePreview.src = "assets/images/default-avatar.png";
         }
 
-        // Display badge based on role or associate level
+       
         if (userProfileBadge) {
             let badgeText = "Utilizador Comum";
             let badgeClass = "bg-secondary";
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
             userProfileBadge.textContent = badgeText;
             userProfileBadge.className = `badge ${badgeClass}`;
         }
-        // Display association info
+      
         if(userAssociations){
             if(userData.associate_level && userData.associated_since){
                 const sinceDate = new Date(userData.associated_since).toLocaleDateString("pt-BR");
@@ -223,12 +223,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Initial load
+  
     fetchUserProfile();
 });
 
-// Re-use showNotification from login.js if it's globally available
-// If not, define it here or ensure login.js is loaded first and showNotification is global.
-// Assuming showNotification is made global or login.js is loaded before perfil.js
-// function showNotification(message, type) { ... } // Definition from login.js
+
 
