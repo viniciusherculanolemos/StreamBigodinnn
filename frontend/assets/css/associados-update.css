@@ -1,0 +1,136 @@
+/* Estilos adicionais para a página de associados atualizada */
+
+.plan-card-bigode {
+    background-color: var(--dark-surface);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-card-bigode:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.plan-card-bigode.featured {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+    border: none;
+}
+
+.plan-card-bigode .plan-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--primary-purple);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.plan-card-bigode.featured .plan-badge {
+    background-color: var(--live-color);
+    animation: pulse 2s infinite;
+}
+
+.plan-card-bigode .plan-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-card-bigode .plan-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.plan-card-bigode .plan-description {
+    color: var(--gray-text);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.plan-card-bigode .plan-features {
+    margin-bottom: 25px;
+}
+
+.plan-card-bigode .plan-features h4 {
+    color: var(--purple-accent);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.plan-card-bigode .plan-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan-card-bigode .plan-features ul li {
+    padding: 8px 0;
+    display: flex;
+    align-items: flex-start;
+    color: white;
+}
+
+.plan-card-bigode .plan-features ul li i {
+    color: var(--success-color);
+    margin-right: 10px;
+    margin-top: 4px;
+}
+
+.plan-card-bigode .plan-footer {
+    text-align: center;
+}
+
+.plan-card-bigode .btn-plan {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, var(--primary-purple), var(--primary-blue));
+    color: white;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.plan-card-bigode .btn-plan:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.plan-card-bigode.featured .btn-plan {
+    background: white;
+    color: var(--primary-purple);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .plan-card-bigode {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,113 @@
+/* Estilos para o contador de visualizações */
+
+.viewers-counter-container {
+    background-color: var(--dark-surface);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.viewers-counter-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.viewers-counter-title i {
+    margin-right: 8px;
+    color: var(--primary-purple);
+}
+
+.viewers-counters {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.counter-item {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.counter-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.counter-label {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-label i {
+    margin-right: 5px;
+}
+
+.counter-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.counter-twitch .counter-value {
+    color: #9146FF; /* Cor da Twitch */
+}
+
+.counter-site .counter-value {
+    color: var(--primary-purple);
+}
+
+.counter-total .counter-value {
+    color: var(--primary-blue);
+}
+
+.counter-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.counter-badge.online {
+    background-color: #28a745;
+    color: white;
+}
+
+.counter-badge.offline {
+    background-color: #6c757d;
+    color: white;
+}
+
+@media (max-width: 576px) {
+    .viewers-counters {
+        flex-direction: column;
+    }
+    
+    .counter-item {
+        margin-bottom: 10px;
+    }
+    
+    .counter-item:not(:last-child)::after {
+        display: none;
+    }
+}

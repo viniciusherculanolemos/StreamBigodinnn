@@ -1,0 +1,721 @@
+/* Estilos para a ferramenta de organização */
+
+/* Cores e variáveis */
+:root {
+    --primary-color: #ff3399; /* Rosa da logo */
+    --secondary-color: #00ccff; /* Azul da logo */
+    --dark-bg: #1a1a2e; /* Fundo escuro similar ao banner */
+    --light-text: #ffffff;
+    --dark-text: #333333;
+    --accent-color: #ffcc00; /* Amarelo para destaques */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Estilos gerais da página */
+.page-header {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid var(--primary-color);
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.page-header h1 i {
+    margin-right: 15px;
+}
+
+.page-header .lead {
+    color: var(--light-text);
+    opacity: 0.8;
+}
+
+/* Cards de estatísticas */
+.stat-card {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 51, 153, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.stat-info {
+    flex-grow: 1;
+}
+
+.stat-info h3 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--light-text);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.stat-change {
+    font-size: 0.9rem;
+}
+
+.stat-change.positive {
+    color: var(--success-color);
+}
+
+.stat-change.negative {
+    color: var(--danger-color);
+}
+
+/* Navegação por abas */
+.nav-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
+}
+
+.nav-tabs .nav-link {
+    color: var(--light-text);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px 5px 0 0;
+    margin-right: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link i {
+    margin-right: 8px;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--primary-color);
+    border-color: transparent;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.tab-content {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Cards de conteúdo */
+.content-card {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+.content-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.content-card h3 i {
+    margin-right: 10px;
+}
+
+/* Calendário */
+.calendar-container {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header h4 {
+    margin: 0;
+    color: var(--light-text);
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-table th, .calendar-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calendar-table th {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--primary-color);
+}
+
+.calendar-table td {
+    position: relative;
+    height: 60px;
+    vertical-align: top;
+}
+
+.calendar-table td.today {
+    background-color: rgba(255, 51, 153, 0.2);
+    border: 1px solid var(--primary-color);
+}
+
+.calendar-table td.has-event {
+    background-color: rgba(0, 204, 255, 0.1);
+}
+
+.calendar-table td .day-number {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 0.9rem;
+}
+
+.calendar-table td .event-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Horários e eventos */
+.schedule-list, .events-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.schedule-item, .event-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.schedule-item:hover, .event-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.schedule-item:last-child, .event-item:last-child {
+    border-bottom: none;
+}
+
+.day-label, .event-date {
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.time-slot, .event-title {
+    color: var(--secondary-color);
+}
+
+.edit-controls {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.schedule-item:hover .edit-controls, 
+.event-item:hover .edit-controls,
+.game-item:hover .edit-controls,
+.idea-item:hover .edit-controls,
+.goal-item:hover .edit-controls,
+.strategy-item:hover .edit-controls,
+.partnership-item:hover .edit-controls,
+.source-item:hover .edit-controls,
+.note-item:hover .edit-controls {
+    opacity: 1;
+}
+
+/* Jogos e ideias de conteúdo */
+.games-list, .ideas-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.game-item, .idea-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.game-item:hover, .idea-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.game-title, .idea-title {
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.game-category, .idea-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.game-schedule {
+    margin-top: 10px;
+}
+
+.badge {
+    margin-right: 5px;
+}
+
+/* Checklist */
+.checklist {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.form-check {
+    padding: 10px 0 10px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-check:last-child {
+    border-bottom: none;
+}
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+.form-check-label {
+    color: var(--light-text);
+}
+
+.form-check-input:checked + .form-check-label {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Metas de crescimento */
+.goals-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.goal-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.goal-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.goal-title {
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.goal-deadline {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.goal-progress {
+    margin-top: 10px;
+}
+
+.progress {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: right;
+}
+
+/* Estratégias e parcerias */
+.strategies-list, .partnerships-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.strategy-item, .partnership-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.strategy-item:hover, .partnership-item:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.strategy-title, .partnership-name {
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.strategy-description, .partnership-type {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Estatísticas de engajamento */
+.engagement-stats {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-row:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: var(--light-text);
+}
+
+.stat-trend {
+    font-size: 0.9rem;
+}
+
+.stat-trend.positive {
+    color: var(--success-color);
+}
+
+.stat-trend.negative {
+    color: var(--danger-color);
+}
+
+/* Gráficos e visualizações */
+.revenue-chart {
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.revenue-summary {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-row:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    color: var(--light-text);
+}
+
+.summary-value {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+/* Doações */
+.donations-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.donation-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.donation-amount {
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.donation-user {
+    color: var(--light-text);
+}
+
+.donation-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.donation-message {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    padding: 5px 0;
+}
+
+/* Plano de associados */
+.subscription-stats {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.subscription-benefits h4 {
+    color: var(--light-text);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.benefits-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.benefits-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.benefits-list li:last-child {
+    border-bottom: none;
+}
+
+.benefits-list li::before {
+    content: "✓";
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+/* Outras fontes de receita */
+.revenue-sources {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.source-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.source-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.source-name {
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.source-amount {
+    color: var(--primary-color);
+}
+
+/* Notas */
+.notes-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.note-item {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.note-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.note-title {
+    font-weight: 500;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+.note-content {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.note-content p {
+    margin-bottom: 5px;
+}
+
+.note-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+/* Bloco de notas */
+.notepad {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.notepad textarea {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-text);
+    resize: none;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+}
+
+.notepad textarea:focus {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 51, 153, 0.25);
+    color: var(--light-text);
+}
+
+.notepad-controls {
+    display: flex;
+    gap: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .content-card {
+        margin-bottom: 20px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .nav-tabs .nav-link i {
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 767px) {
+    .stat-card {
+        margin-bottom: 15px;
+    }
+    
+    .page-header {
+        padding: 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .nav-tabs .nav-link i {
+        margin-right: 3px;
+    }
+    
+    .calendar-table th, .calendar-table td {
+        padding: 5px;
+    }
+    
+    .calendar-table td {
+        height: 40px;
+    }
+}
